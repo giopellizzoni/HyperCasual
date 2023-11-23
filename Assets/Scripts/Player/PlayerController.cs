@@ -11,6 +11,9 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Power Ups Text")]
     public TextMeshPro uiTextPowerUp;
 
+    [Header("Coin Collector Setup")]
+    public GameObject coinCollector;
+
     [Header("Tags")]
     public string tagToCheckEnemy = "Enemy";
     public string tagToEndLine = "EndLine";
@@ -115,5 +118,10 @@ public class PlayerController : Singleton<PlayerController>
     public void ResetHeight()
     {
         transform.DOMoveY(_startPosition.y, .1f);
+    }
+
+    public void ChangeCoinCollectorSize(float sizeAmount)
+    {
+        coinCollector.transform.localScale = Vector3.one * sizeAmount;
     }
 }

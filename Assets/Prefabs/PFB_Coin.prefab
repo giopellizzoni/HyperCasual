@@ -67,11 +67,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324035e1435ab7c40888fc4de7c35fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  compareTag: Player
+  compareTag: CoinCollector
   particleSystem: {fileID: 0}
   timeToHide: 0
   graphicItem: {fileID: 7028171744260200162}
+  audioSource: {fileID: 0}
 --- !u!1 &7028171744260200162
 GameObject:
   m_ObjectHideFlags: 0

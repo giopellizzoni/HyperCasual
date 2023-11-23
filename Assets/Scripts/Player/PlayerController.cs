@@ -6,21 +6,20 @@ using System;
 
 public class PlayerController : Singleton<PlayerController>
 {
+    public string tagToCheckEnemy = "Enemy";
+    public string tagToEndLine = "EndLine";
+    public GameObject endScreen;
     [Header("Lerp")]
     public Transform target;
     public float lerpSpeed = 1f;
-
-
     public float speed = 1f;
-    public string tagToCheckEnemy = "Enemy";
-    public string tagToEndLine = "EndLine";
-
-    public GameObject endScreen;
+    public bool invincible = false;
 
     private Vector3 _pos;
     private bool _canRun;
     private float _currentSpeed;
     private Vector3 _startPosition;
+    
 
 
     public void Start()
@@ -47,7 +46,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (collision.transform.tag == tagToCheckEnemy)
         {
-            EndGame();
+            if(!invincible) EndGame();
         }
     }
 
@@ -55,7 +54,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (other.transform.tag == tagToEndLine) 
         { 
-            EndGame(); 
+            if(!invincible) EndGame(); 
         }
     }
 
@@ -86,6 +85,14 @@ public class PlayerController : Singleton<PlayerController>
         _currentSpeed = speed;    
     }
 
+    #endregion
+
+    #region Power Up Invencible
+
+    public void SetInvincible(bool isInvincible = true)
+    {
+        invincible = isInvincible;
+    }
 
     #endregion
 }

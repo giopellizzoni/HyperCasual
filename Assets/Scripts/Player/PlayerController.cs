@@ -3,24 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ebac.Core.Singleton;
 using System;
+using TMPro;
+using DG.Tweening;
 
 public class PlayerController : Singleton<PlayerController>
 {
+    [Header("Power Ups Text")]
+    public TextMeshPro uiTextPowerUp;
+
+    [Header("Tags")]
     public string tagToCheckEnemy = "Enemy";
     public string tagToEndLine = "EndLine";
+
+    [Header("Game Control")]
     public GameObject endScreen;
+
     [Header("Lerp")]
     public Transform target;
     public float lerpSpeed = 1f;
     public float speed = 1f;
     public bool invincible = false;
 
+    #region Private Region
     private Vector3 _pos;
     private bool _canRun;
     private float _currentSpeed;
     private Vector3 _startPosition;
-    
-
+    #endregion
 
     public void Start()
     {
@@ -72,7 +81,7 @@ public class PlayerController : Singleton<PlayerController>
     #region PowerUps
     public void SetPowerUpText(string s)
     { 
-        //uiTextPowerUp.text = s;
+        uiTextPowerUp.text = s;
     }
 
     public void PowerUpSpeeUp(float f) 
@@ -95,4 +104,16 @@ public class PlayerController : Singleton<PlayerController>
     }
 
     #endregion
+
+
+    public void ChangeHeight(float amountHeight, float duration, float animationDuration, Ease ease)
+    {
+        transform.DOMoveY(_startPosition.y + amountHeight, animationDuration).SetEase(ease);
+        Invoke(nameof(ResetHeight), duration);
+    }
+
+    public void ResetHeight()
+    {
+        transform.DOMoveY(_startPosition.y, .1f);
+    }
 }

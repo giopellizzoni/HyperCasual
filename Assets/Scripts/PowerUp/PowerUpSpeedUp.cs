@@ -18,7 +18,6 @@ public class PowerUpSpeedUp : PowerUpBase
     {
         base.EndPowerUp();
         PlayerController.Instance.ResetSpeed();
-        PlayerController.Instance.SetPowerUpText("Slow Down");
     }
 
 }

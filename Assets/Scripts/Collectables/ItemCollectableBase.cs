@@ -5,13 +5,15 @@ using UnityEngine;
 public class ItemCollectableBase : MonoBehaviour
 {
 
-    [Header("Sounds")]
-    public AudioSource audioSource;
-
     public string compareTag = "Player";
     public ParticleSystem particleSystem;
     public float timeToHide = 3;
     public GameObject graphicItem;
+
+    [Header("Sounds")]
+    public AudioSource audioSource;
+
+  
 
     private void OnTriggerEnter(Collider collision)
     {

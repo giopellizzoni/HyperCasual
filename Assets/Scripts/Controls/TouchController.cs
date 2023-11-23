@@ -20,8 +20,8 @@ public class TouchController : MonoBehaviour
         if (Input.GetMouseButton(0)) 
         {
             Move(Input.mousePosition.x - pastPosition.x);
-            pastPosition = Input.mousePosition;
         }
+        pastPosition = Input.mousePosition;
     }
 
 

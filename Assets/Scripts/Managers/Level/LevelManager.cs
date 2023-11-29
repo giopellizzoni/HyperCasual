@@ -7,16 +7,9 @@ public class LevelManager : MonoBehaviour
     public Transform container;
     public List<GameObject> levels;
 
-    [Header("Pieces")]
-    public List<LevelPieceBase> levelPiecesStart;
-    public List<LevelPieceBase> levelPieces;
-    public List<LevelPieceBase> levelPiecesEnd;
-    public int piecesNumberStart = 3;
-    public int piecesNumber = 5;
-    public int piecesNumberEnd = 1;
-
-    public float timeBetweenPieces = .3f;
-
+    [Header("Level Pieces Base Setup")]
+    public LevelPieceBaseSetup pieceSetup;
+   
     private int _index;
     private GameObject _currentLevel;
     public List<LevelPieceBase> _spawnedPieces;
@@ -55,19 +48,19 @@ public class LevelManager : MonoBehaviour
     {
         _spawnedPieces = new List<LevelPieceBase>();
         
-        for (int i = 0; i < piecesNumberStart; i++)
+        for (int i = 0; i < pieceSetup.piecesNumberStart; i++)
         {
-            CreateLevelPieces(levelPiecesStart);
+            CreateLevelPieces(pieceSetup.levelPiecesStart);
         }
 
-        for (int i = 0; i < piecesNumber; i++)
+        for (int i = 0; i < pieceSetup.piecesNumber; i++)
         {
-            CreateLevelPieces(levelPieces);
+            CreateLevelPieces(pieceSetup.levelPieces);
         }
 
-        for (int i = 0; i < piecesNumberEnd; i++)
+        for (int i = 0; i < pieceSetup.piecesNumberEnd; i++)
         {
-            CreateLevelPieces(levelPiecesEnd);
+            CreateLevelPieces(pieceSetup.levelPiecesEnd);
         }
     }
 

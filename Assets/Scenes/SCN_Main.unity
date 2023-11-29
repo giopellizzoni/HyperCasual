@@ -506,18 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 604906397}
   levels: []
-  levelPiecesStart:
-  - {fileID: 8214065018442460140, guid: a6f2e4250dbeb1242ac15fdc7bcbbe24, type: 3}
-  levelPieces:
-  - {fileID: 8214065018442460140, guid: 70446b9310706df4396cf8919965335e, type: 3}
-  - {fileID: 655258493213671717, guid: 641a4063809a9d545b0e2125f53025a3, type: 3}
-  - {fileID: 655258493213671717, guid: b9699504ca30e4d48a1fde556e1e8955, type: 3}
-  levelPiecesEnd:
-  - {fileID: 8214065018442460140, guid: 8e6b3459553af874d903b28fe554041a, type: 3}
-  piecesNumberStart: 3
-  piecesNumber: 10
-  piecesNumberEnd: 1
-  timeBetweenPieces: 0.3
+  pieceSetup: {fileID: 11400000, guid: a77384fc5c3f9c242b8f825ac8bcb845, type: 2}
   _spawnedPieces: []
 --- !u!4 &434930031
 Transform:
@@ -620,7 +609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2046941, y: -0.049346328, z: 0.010333122, w: 0.9775267}
+  m_LocalRotation: {x: 0.2046941, y: -0.049346313, z: 0.010333119, w: 0.9775267}
   m_LocalPosition: {x: 0.83, y: 4.1099997, z: -8.64343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1067,7 +1056,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142676928}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2046941, y: -0.049346328, z: 0.010333122, w: 0.9775267}
+  m_LocalRotation: {x: 0.2046941, y: -0.049346313, z: 0.010333119, w: 0.9775267}
   m_LocalPosition: {x: -0.3376146, y: 3.6099997, z: -18.220001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

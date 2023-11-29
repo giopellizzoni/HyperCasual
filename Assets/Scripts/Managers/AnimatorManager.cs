@@ -14,7 +14,7 @@ public class AnimatorManager : MonoBehaviour
     {
         var animation = animatorSetups.Where(i => i.type == type).FirstOrDefault();
         animator.SetTrigger(animation.trigger);
-        animator.speed = animation.speed * currentSpeedFactor * Time.deltaTime;
+        animator.speed = animation.speed * currentSpeedFactor;
         
     }
 

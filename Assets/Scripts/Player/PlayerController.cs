@@ -27,11 +27,15 @@ public class PlayerController : Singleton<PlayerController>
     public float speed = 1f;
     public bool invincible = false;
 
+    [Header("Animation")]
+    public AnimatorManager animatorManager;
+
     #region Private Region
     private Vector3 _pos;
     private bool _canRun;
     private float _currentSpeed;
     private Vector3 _startPosition;
+    private float _baseSpeedToAnimation = 7;
     #endregion
 
     public void Start()
@@ -58,8 +62,17 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (collision.transform.tag == tagToCheckEnemy)
         {
-            if(!invincible) EndGame();
+            if (!invincible) 
+            {
+                MoveBack(collision.transform);
+                EndGame(AnimatorManager.AnimationType.DEATH);
+            }
         }
+    }
+
+    private void MoveBack(Transform other) 
+    {
+        other.DOMoveZ(1f, .3f).SetRelative();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -70,19 +83,21 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
-    private void EndGame()
+    private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE)
     {
         _canRun = false;
         endScreen.SetActive(true);
+        animatorManager.Play(animationType);
     }
 
     public void StartToRun()
     {
         _canRun = true;
+        animatorManager.Play(AnimatorManager.AnimationType.RUN, _currentSpeed / _baseSpeedToAnimation);
     }
 
     #region PowerUps
-    public void SetPowerUpText(string s)
+    public void SetPowerUpText(string s = "")
     { 
         uiTextPowerUp.text = s;
     }

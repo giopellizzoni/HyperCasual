@@ -15,6 +15,6 @@ public class PowerUpInvincible : PowerUpBase
     {
         base.EndPowerUp();
         PlayerController.Instance.SetInvincible(false);
-        PlayerController.Instance.SetPowerUpText("Invincible");
+        PlayerController.Instance.SetPowerUpText();
     }
 }
